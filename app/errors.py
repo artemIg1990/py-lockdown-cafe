@@ -2,6 +2,7 @@ class VaccineError(Exception):
     # basic class for errors about vaccination
     pass
 
+
 class NotVaccinatedError(VaccineError):
     """Raised when a person is not vaccinated."""
     def __init__(self, message: str = "Visitor is not vaccinated") -> None:
