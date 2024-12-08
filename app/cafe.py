@@ -11,16 +11,16 @@ class Cafe:
         try:
             vaccine_info = visitor["vaccine"]
         except KeyError:
-            raise NotVaccinatedError
+            raise NotVaccinatedError("NotVaccinatedError")
         try:
             expiration_date = vaccine_info["expiration_date"]
             if expiration_date < datetime.date.today():
-                raise OutdatedVaccineError
+                raise OutdatedVaccineError("OutdatedVaccineError")
         except KeyError:
-            raise NotVaccinatedError
+            raise NotVaccinatedError("NotVaccinatedError")
         try:
             if not visitor["wearing_a_mask"]:
-                raise NotWearingMaskError
+                raise NotWearingMaskError("NotWearingMaskError")
         except KeyError:
-            raise NotWearingMaskError
+            raise NotWearingMaskError("NotWearingMaskError")
         return f"Welcome to {self.name}"
